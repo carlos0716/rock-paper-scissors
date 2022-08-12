@@ -11,26 +11,35 @@
 // let randomItem = myArray[Math.floor(Math.random()* myArray.length)];
 // console.log(randomItem);
 
+// if (playerScore > cpuScore) {
+//     return alert(`Player wins with a score of ${playerScore} - ${cpuScore}`);
+//  }
+//  else if (cpuScore > playerScore) {
+//     return alert(`Computer wins with a score of ${cpuScore} - ${playerScore} `);
+//  }
+//  else {
+//     return alert(`Final Score: Player - ${playerScore} Computer - ${cpuScore} Draws - ${gamesDraw}`);
+//  }
 
-// let computerSelection = computerPlay();
-// let playerSelection = prompt("Do you want to play Rock, Paper or Scissors?");
 
 function game() {
-    
+
      for (let i = 0; i < 5; i++) {   
         let playerSelection = prompt('Enter selection');
         let playerSelectionInsensitive = playerSelection.toLowerCase();
     playRound(playerSelectionInsensitive, getComputerChoice());
      }
-     if (playerScore === 3) {
+
+     if (playerScore > cpuScore) {
         return alert(`Player wins with a score of ${playerScore} - ${cpuScore}`);
      }
-     else if (cpuScore === 3) {
-        return alert(`Computer wins with a score of `)
+     else if (cpuScore > playerScore) {
+        return alert(`Computer wins with a score of ${cpuScore} - ${playerScore} `);
      }
      else {
         return alert(`Final Score: Player - ${playerScore} Computer - ${cpuScore} Draws - ${gamesDraw}`);
      }
+     
 }
 
 

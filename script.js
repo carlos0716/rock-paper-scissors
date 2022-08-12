@@ -19,38 +19,55 @@ function game() {
     
      for (let i = 0; i < 5; i++) {   
         let playerSelection = prompt('Enter selection');
-    playRound(playerSelection, getComputerChoice());
+        let playerSelectionInsensitive = playerSelection.toLowerCase();
+    playRound(playerSelectionInsensitive, getComputerChoice());
+     }
+     if (playerScore === 3) {
+        return alert(`Player wins with a score of ${playerScore} - ${cpuScore}`);
+     }
+     else if (cpuScore === 3) {
+        return alert(`Computer wins with a score of `)
+     }
+     else {
+        return alert(`Final Score: Player - ${playerScore} Computer - ${cpuScore} Draws - ${gamesDraw}`);
      }
 }
+
+
+let playerScore = 0;
+let cpuScore = 0;
+let gamesDraw = 0;
+// let playerSelection = prompt('Enter selection');
+// let playerSelectionInsensitive = playerSelection.toLowerCase();
 
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
-        return alert(`It's a Draw`)
+        return console.log(gamesDraw++);
     }
     
     else if(playerSelection === "rock" && computerSelection === "paper") {
-        return alert(`You lose ${computerSelection} beats ${playerSelection}`);
+        return console.log(cpuScore++);
     }
     
     else if(playerSelection === "paper" && computerSelection === "scissors") {
-        return alert(`You lose ${computerSelection} beats ${playerSelection}`);
+        return console.log(cpuScore++);
     }
     
     else if(playerSelection === "scissors" && computerSelection === "rock") {
-        return alert(`You lose ${computerSelection} beats ${playerSelection}`);
+        return console.log(cpuScore++);
     }
     
     else if (playerSelection === "rock" && computerSelection === "scissors") {
-        return alert(`You win ${playerSelection} beats ${computerSelection}`);
+        return console.log(playerScore++);
     }
     
     else if(playerSelection === "paper" && computerSelection === "rock") {
-        return alert(`You win ${playerSelection} beats ${computerSelection}`);
+        return console.log(playerScore++);
     }
     
     else if(playerSelection === "scissors" && computerSelection === "paper") {
-        return alert(`You win ${playerSelection} beats ${computerSelection}`);
+        return console.log(playerScore++);
     }
     
     else {

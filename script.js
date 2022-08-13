@@ -40,53 +40,53 @@
 // let playerSelection = prompt('Enter selection');
 // let playerSelectionInsensitive = playerSelection.toLowerCase();*****
 
-let playerScore = 1;
-let cpuScore = 1;
+let playerScore = 0;
+let cpuScore = 0;
 let gamesDraw = 0;
 
 function game() {
-while ((playerScore || cpuScore) < 5) {
+while (playerScore < 5 && cpuScore < 5) {
     let playerSelection = prompt('Enter selection');
 
     playRound(playerSelection, getComputerChoice())
 }
-    // if (playerScore >= 5) {
-    //     return alert(`Player wins ${playerScore} - ${cpuScore}`)
-    // }
-    // else if (cpuScore >= 5) {
-    //     return alert(`Cpu wins ${cpuScore} - ${playerScore}`)
-    // }
+    if (playerScore === 5) {
+        return alert(`Player wins ${playerScore} - ${cpuScore}`)
+    }
+    else if (cpuScore === 5) {
+        return alert(`Cpu wins ${cpuScore} - ${playerScore}`)
+    }
 }
 
 
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection === computerSelection) {
-        return console.log(gamesDraw++);
+        return console.log(gamesDraw+=1);
     }
     
     else if(playerSelection === "rock" && computerSelection === "paper") {
-        return console.log(cpuScore++);
+        return console.log(cpuScore+=1);
     }
     
     else if(playerSelection === "paper" && computerSelection === "scissors") {
-        return console.log(cpuScore++);
+        return console.log(cpuScore+=1);
     }
     
     else if(playerSelection === "scissors" && computerSelection === "rock") {
-        return console.log(cpuScore++);
+        return console.log(cpuScore+=1);
     }
     
     else if (playerSelection === "rock" && computerSelection === "scissors") {
-        return console.log(playerScore++);
+        return console.log(playerScore+=1);
     }
     
     else if(playerSelection === "paper" && computerSelection === "rock") {
-        return console.log(playerScore++);
+        return console.log(playerScore+=1);
     }
     
     else if(playerSelection === "scissors" && computerSelection === "paper") {
-        return console.log(playerScore++);
+        return console.log(playerScore+=1);
     }
     
     else {

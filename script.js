@@ -22,32 +22,42 @@
 //  }
 
 
-function game() {
+//** */ function game() {
 
-     for (let i = 0; i < 5; i++) {   
-        let playerSelection = prompt('Enter selection');
-        let playerSelectionInsensitive = playerSelection.toLowerCase();
-    playRound(playerSelectionInsensitive, getComputerChoice());
-     }
-
-     if (playerScore > cpuScore) {
-        return alert(`Player wins with a score of ${playerScore} - ${cpuScore}`);
-     }
-     else if (cpuScore > playerScore) {
-        return alert(`Computer wins with a score of ${cpuScore} - ${playerScore} `);
-     }
-     else {
-        return alert(`Final Score: Player - ${playerScore} Computer - ${cpuScore} Draws - ${gamesDraw}`);
-     }
+//      for (let i = 0; i = 5; i++) {   
+//         let playerSelection = prompt('Enter selection');
+//         let playerSelectionInsensitive = playerSelection.toLowerCase();
+//     playRound(playerSelectionInsensitive, getComputerChoice());
+//      }
      
+// }
+
+
+// let playerScore = 0;
+// let cpuScore = 0;
+// let gamesDraw = 0;
+
+// let playerSelection = prompt('Enter selection');
+// let playerSelectionInsensitive = playerSelection.toLowerCase();*****
+
+let playerScore = 1;
+let cpuScore = 1;
+let gamesDraw = 0;
+
+function game() {
+while ((playerScore || cpuScore) < 5) {
+    let playerSelection = prompt('Enter selection');
+
+    playRound(playerSelection, getComputerChoice())
+}
+    // if (playerScore >= 5) {
+    //     return alert(`Player wins ${playerScore} - ${cpuScore}`)
+    // }
+    // else if (cpuScore >= 5) {
+    //     return alert(`Cpu wins ${cpuScore} - ${playerScore}`)
+    // }
 }
 
-
-let playerScore = 0;
-let cpuScore = 0;
-let gamesDraw = 0;
-// let playerSelection = prompt('Enter selection');
-// let playerSelectionInsensitive = playerSelection.toLowerCase();
 
 function playRound(playerSelection, computerSelection) {
 
@@ -138,6 +148,26 @@ function getComputerChoice() { // I had this code block at the beginning of the 
 //         alert("Try again");
 //     }
 // }   
+
+// function game() {
+
+//     for (let i = 0; i = 5; i++) {   
+//        let playerSelection = prompt('Enter selection');
+//        let playerSelectionInsensitive = playerSelection.toLowerCase();
+//    playRound(playerSelectionInsensitive, getComputerChoice());
+//     }
+
+//     if (playerScore > cpuScore) { ***** right anser for the best of five series. *******
+//        return alert(`Player wins with a score of ${playerScore} - ${cpuScore}`);
+//     }
+//     else if (cpuScore > playerScore) {
+//        return alert(`Computer wins with a score of ${cpuScore} - ${playerScore} `);
+//     }
+//     else {
+//        return alert(`Final Score: Player - ${playerScore} Computer - ${cpuScore} Draws - ${gamesDraw}`);
+//     }
+    
+// }*
 
 // function getComputerChoice() { // I had this code block at the beginning of the file, once I move it after the main function the program worked as expected.
 //     let computerChoice = ['rock', 'paper', 'scissors']

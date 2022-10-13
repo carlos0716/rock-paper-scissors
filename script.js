@@ -40,6 +40,9 @@
 // let playerSelection = prompt('Enter selection');
 // let playerSelectionInsensitive = playerSelection.toLowerCase();*****
 
+
+//************* This is the right solution to the RPS exercise */
+'use strict'
 let playerScore = 0;
 let cpuScore = 0;
 let gamesDraw = 0;
@@ -47,8 +50,8 @@ let gamesDraw = 0;
 function game() {
 while (playerScore < 5 && cpuScore < 5) {
     let playerSelection = prompt('Enter selection');
-
-    playRound(playerSelection, getComputerChoice())
+    let playerSelectionInsensitive = playerSelection.toLowerCase(); 
+    playRound(playerSelectionInsensitive, getComputerChoice());
 }
     if (playerScore === 5) {
         return alert(`Player wins ${playerScore} - ${cpuScore}`)
@@ -99,6 +102,25 @@ function getComputerChoice() { // I had this code block at the beginning of the 
     let computerAnswer = computerChoice[Math.floor(Math.random() * computerChoice.length)];
     return computerAnswer;
 }
+
+let btnR = document.createElement('button');
+btnR.innerText = 'Rock';
+
+
+let btnP = document.createElement('button');
+btnP.innerText = 'Paper';
+
+let btnS = document.createElement('button');
+btnS.innerText = 'Scissors';
+
+let body = document.getElementsByTagName('body')[0];
+body.appendChild(btnR);
+body.appendChild(btnP);
+body.appendChild(btnS);
+
+btnR.addEventListener('click', playRound());
+
+
 
 // const playerSelection = prompt("Enter choice:");
 // const playerSelectionInsensitive = playerSelection.toLowerCase();

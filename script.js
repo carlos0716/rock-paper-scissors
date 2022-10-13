@@ -118,7 +118,47 @@ body.appendChild(btnR);
 body.appendChild(btnP);
 body.appendChild(btnS);
 
-btnR.addEventListener('click', playRound());
+btnR.addEventListener('click', () => {
+    let computerChoice = ['rock', 'paper', 'scissors'];
+    let computerAnswer = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+    
+    if(computerAnswer === 'rock') {
+        gamesDraw++;
+    } else if(computerAnswer === 'paper') {
+        cpuScore++;
+    } else if(computerAnswer === 'scissors') {
+        playerScore++;
+    }
+    return console.log(computerAnswer);
+});
+
+btnP.addEventListener('click', () => {
+    let computerChoice = ['rock', 'paper', 'scissors'];
+    let computerAnswer = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+    
+    if(computerAnswer === 'rock') {
+        playerScore++;
+    } else if(computerAnswer === 'paper') {
+        gamesDraw++;
+    } else if(computerAnswer === 'scissors') {
+        cpuScore++;
+    }
+    return console.log(playerScore);
+});
+
+btnS.addEventListener('click', () => {
+    let computerChoice = ['rock', 'paper', 'scissors'];
+    let computerAnswer = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+    
+    if(computerAnswer === 'rock') {
+        cpuScore++;
+    } else if(computerAnswer === 'paper') {
+        playerScore++;
+    } else if(computerAnswer === 'scissors') {
+        cpuScore++;
+    }
+    return console.log(cpuScore);
+});
 
 
 

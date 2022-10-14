@@ -103,62 +103,99 @@ function getComputerChoice() { // I had this code block at the beginning of the 
     return computerAnswer;
 }
 
+/****  new part starts here    */
+let para = document.createElement('p');
+para.style.color = 'white';
+
+
+let div = document.createElement('div');
+div.classList.add('container');
+div.style.height = 'auto';
+div.style.width = 'auto';
+div.style.backgroundColor = '#002200';
+div.append(para);
+
 let btnR = document.createElement('button');
 btnR.innerText = 'Rock';
+btnR.addEventListener('click', () => {
+    let computerChoice = ['rock', 'paper', 'scissors'];
+    let computerAnswer = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+    
+    let cpuWins = document.createTextNode(`CPU WINS! `);
+    let playerWins = document.createTextNode(`PLAYER WINS! `);
+    let draw = document.createTextNode(` THAT WAS A DRAW! `);
+    
 
+    if(computerAnswer === 'rock') {
+        gamesDraw++;
+        para.appendChild(draw);
+    } else if(computerAnswer === 'paper') {
+        cpuScore++;
+        para.appendChild(cpuWins);
+    } else if(computerAnswer === 'scissors') {
+        playerScore++;
+        para.appendChild(playerWins);
+    }
+    return para.appendChild(document.createTextNode(`CPU ${cpuScore} - PLAYER ${playerScore}`));
+});
 
 let btnP = document.createElement('button');
 btnP.innerText = 'Paper';
+btnP.addEventListener('click', () => {
+    let computerChoice = ['rock', 'paper', 'scissors'];
+    let computerAnswer = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+    
+    let cpuWins = document.createTextNode(` CPU WINS! `);
+    let playerWins = document.createTextNode(` PLAYER WINS! `);
+    let draw = document.createTextNode(` THAT WAS A DRAW! `);
+
+    if(computerAnswer === 'rock') {
+        playerScore++;
+        para.appendChild(playerWins);
+    } else if(computerAnswer === 'paper') {
+        gamesDraw++;
+        para.appendChild(draw);
+    } else if(computerAnswer === 'scissors') {
+        cpuScore++;
+        para.appendChild(cpuWins);
+    }
+    return para.appendChild(document.createTextNode(`CPU ${cpuScore} - PLAYER ${playerScore}`));
+});
 
 let btnS = document.createElement('button');
 btnS.innerText = 'Scissors';
+btnS.addEventListener('click', () => {
+    let computerChoice = ['rock', 'paper', 'scissors'];
+    let computerAnswer = computerChoice[Math.floor(Math.random() * computerChoice.length)];
+    
+    let cpuWins = document.createTextNode(` CPU WINS! `);
+    let playerWins = document.createTextNode(` PLAYER WINS! `);
+    let draw = document.createTextNode(` THAT WAS A DRAW! `);
+
+    if(computerAnswer === 'rock') {
+        cpuScore++;
+        para.appendChild(cpuWins);
+    } else if(computerAnswer === 'paper') {
+        playerScore++;
+        para.appendChild(playerWins);
+    } else if(computerAnswer === 'scissors') {
+        draw++;
+        para.appendChild(draw);
+    }
+    return para.appendChild(document.createTextNode(` CPU ${cpuScore} - PLAYER ${playerScore} `));
+});
 
 let body = document.getElementsByTagName('body')[0];
 body.appendChild(btnR);
 body.appendChild(btnP);
 body.appendChild(btnS);
+body.appendChild(div);
 
-btnR.addEventListener('click', () => {
-    let computerChoice = ['rock', 'paper', 'scissors'];
-    let computerAnswer = computerChoice[Math.floor(Math.random() * computerChoice.length)];
-    
-    if(computerAnswer === 'rock') {
-        gamesDraw++;
-    } else if(computerAnswer === 'paper') {
-        cpuScore++;
-    } else if(computerAnswer === 'scissors') {
-        playerScore++;
-    }
-    return console.log(computerAnswer);
-});
 
-btnP.addEventListener('click', () => {
-    let computerChoice = ['rock', 'paper', 'scissors'];
-    let computerAnswer = computerChoice[Math.floor(Math.random() * computerChoice.length)];
-    
-    if(computerAnswer === 'rock') {
-        playerScore++;
-    } else if(computerAnswer === 'paper') {
-        gamesDraw++;
-    } else if(computerAnswer === 'scissors') {
-        cpuScore++;
-    }
-    return console.log(playerScore);
-});
 
-btnS.addEventListener('click', () => {
-    let computerChoice = ['rock', 'paper', 'scissors'];
-    let computerAnswer = computerChoice[Math.floor(Math.random() * computerChoice.length)];
-    
-    if(computerAnswer === 'rock') {
-        cpuScore++;
-    } else if(computerAnswer === 'paper') {
-        playerScore++;
-    } else if(computerAnswer === 'scissors') {
-        cpuScore++;
-    }
-    return console.log(cpuScore);
-});
+
+
+
 
 
 

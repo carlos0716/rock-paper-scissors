@@ -73,19 +73,6 @@ function getComputerChoice() { // I had this code block at the beginning of the 
 }
 
 /****  new part starts here    */
-
-let para = document.createElement('p');
-para.style.color = 'white';
-
-
-let div = document.createElement('div');
-div.classList.add('container');
- div.style.height = '50px';
- div.style.width = '500px';
-div.style.backgroundColor = '#002200';
-
-div.append(para);
-
 let btnR = document.createElement('button');
 btnR.innerText = 'Rock';
 btnR.addEventListener('click', () => {
@@ -151,10 +138,33 @@ btnS.addEventListener('click', () => {
     //return para.appendChild(document.createTextNode(` CPU ${cpuScore} - PLAYER ${playerScore} `));
 });
 
+let para = document.createElement('p');
+para.style.color = 'white';
+
+let btnContainer= document.createElement('div');
+btnContainer.classList.add('btnContainer');
+btnContainer.appendChild(btnR);
+btnContainer.appendChild(btnP);
+btnContainer.appendChild(btnS);
+
+let textContainer = document.createElement('div');
+textContainer.classList.add('text-container');
+textContainer.style.height = '50px';
+textContainer.style.width = '500px';
+textContainer.style.backgroundColor = '#002200';
+textContainer.append(para);
+
+let div = document.createElement('div');
+div.classList.add('container');
+
+div.append(btnContainer);
+div.append(textContainer);
+
 let body = document.getElementsByTagName('body')[0];
-body.appendChild(btnR);
-body.appendChild(btnP);
-body.appendChild(btnS);
+//body.style.flex = '1 0 auto';
+// body.appendChild(btnR);
+// body.appendChild(btnP);
+// body.appendChild(btnS);
 body.appendChild(div);
 
 
